@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Apiculteurs</title>
+</head>
+<body>
+    <h1>Liste des Apiculteurs, de leurs ruchers et de leurs ruches</h1>
+    <ol>
+        {% for user in users %}
+            <li>{{user.first_name}} {{user.last_name}} | ({{ user.email}})
+                <ul>
+                    {%for beeyard in user.beeyards.all%}
+                    <li>{{beeyard.loc_name}}                  
+                            <ul>
+                                {%for hive in beeyard.hives.all%}
+                                <li>{{hive.registration}} | {{hive.status}}</li>
+                                {%endfor%}
+                            </ul>
+                    {% endfor%}   
+                </ul>
+        {% endfor %}
+    </ol>
+</body>
+</html>
