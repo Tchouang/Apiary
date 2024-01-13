@@ -34,4 +34,5 @@ class DiseaseViewSet(viewsets.ModelViewSet):
     queryset = Disease.objects.all()
     serializer_class = DiseaseSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filterset_class = DiseaseFilters
     filter_backends = [DjangoFilterBackend]
