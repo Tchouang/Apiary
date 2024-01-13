@@ -9,7 +9,7 @@
 <li>It is only possible to perform one action on a beeyard via postman (read the end of the api/views/beeyards.py file to know how)
 It treats the beeyard with a specific treatment</li>
 
-<li>Filters are available on api and public (which is read-only)</li>
+<li>Filters are available on api and public (the last one is read-only)</li>
 </ol>
 
 
