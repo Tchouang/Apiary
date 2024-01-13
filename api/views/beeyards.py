@@ -42,7 +42,7 @@ class BeeyardViewSet(viewsets.ModelViewSet):
                 Treatment.objects.filter(hive=hive).update_or_create(hive=hive, treatment=treatment, treatment_date=treatment_date)
             return Response(status=status.HTTP_200_OK) 
         return Response(status=status.HTTP_400_BAD_REQUEST)
-#to be pasted in postman PATCH to treat the beeyard 1 with ApiVar the 2023-01-01:
+#to be pasted in postman PATCH to treat the beeyard with id 1 with ApiVar the 2023-01-01:
 # http://127.0.0.1:8000/beeyard/1/treatment_par/
 # json : 
 # {
