@@ -25,6 +25,7 @@ class VBeeyardViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Beeyard.objects.all()
     serializer_class = BeeyardSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filterset_class = BeeyardFilters
     filter_backends = [DjangoFilterBackend]
     
     @action(

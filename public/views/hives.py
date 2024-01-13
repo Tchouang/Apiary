@@ -28,4 +28,5 @@ class VHiveViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Hive.objects.all()
     serializer_class = HiveSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filterset_class = HiveFilters
     filter_backends = [DjangoFilterBackend]
