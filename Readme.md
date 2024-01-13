@@ -1,4 +1,4 @@
-<h3>Apiary Exercice</h3>
+<h3>Apiary Exercice: Pierre Sabat</h3>
 <ol>
 <li>Use the ususal procedures to setup a DRF project</li>
 
