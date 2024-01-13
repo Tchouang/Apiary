@@ -27,25 +27,3 @@ class VBeeyardViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     filterset_class = BeeyardFilters
     filter_backends = [DjangoFilterBackend]
-    
-    @action(
-        detail=True,
-        methods=["PATCH"]
-    )
-    def treatment_par(self, request, pk):
-        current_beeyard = Beeyard.objects.filter(pk=pk).first()
-        treatment = request.data.get("treatment")
-        treatment_date = request.data.get("treatment_date")
-        hives = Hive.objects.filter(beeyard=current_beeyard)
-        if current_beeyard is not None:
-            for hive in hives:
-                Treatment.objects.filter(hive=hive).update_or_create(hive=hive, treatment=treatment, treatment_date=treatment_date)
-            return Response(status=status.HTTP_200_OK) 
-        return Response(status=status.HTTP_400_BAD_REQUEST)
-#to be pasted in postman PATCH to treat the beeyard 1 with ApiVar the 2023-01-01:
-# http://127.0.0.1:8000/beeyard/1/treatment_par/
-# json : 
-# {
-# "treatment":"AV",
-# "treatment_date":"2023-01-01"
-# }
